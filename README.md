@@ -18,6 +18,9 @@ Yes! We support the new [L402 Protocol](https://docs.lightning.engineering/the-l
 
 ## API
 
+> [!NOTE]  
+> To see a demo of this process, including paying the invoice with webln, check out the [API example](https://github.com/transcribefm/api-example) repo or deploy it yourself on Replit.
+
 ### Requesting an invoice
 To request an invoice, POST an `audio_url` to `https://transcribe.fm/api/v1/transcribe`:
 ```js
@@ -41,9 +44,6 @@ Date: Mon, 04 Feb 2014 16:50:53 GMT
 WWW-Authenticate: L402 macaroon="AGIAJEemVQUTEyNCR0exk7ek90Cg==", invoice="lnbc1500n1pw5kjhmpp5fu6xhthlt2vucmzkx6c7wtlh2r625r30cyjsfqhu8rsx4xpz5lwqdpa2fjkzep6yptksct5yp5hxgrrv96hx6twvusycn3qv9jx7ur5d9hkugr5dusx6cqzpgxqr23s79ruapxc4j5uskt4htly2salw4drq979d7rcela9wz02elhypmdzmzlnxuknpgfyfm86pntt8vvkvffma5qc9n50h4mvqhngadqy3ngqjcym5a"
 ```
 The client can then pay the Lightning invoice to reveal the `preimage`. 
-
-> [!NOTE]  
-> To see a demo of this process, including paying the invoice with webln, check out the [API example](https://github.com/transcribefm/api-example) repo.
 
 ### Requesting transcription
 By including the `macaroon` and the `preimage` in an Authorization header, you can call the `/transcribe` endpoint again. By default, this will return a `transcript_id`, requiring subsequent requests to retreive a transcript in a specific format. 
