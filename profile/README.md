@@ -61,14 +61,14 @@ fetch("https://transcribe.fm/api/v1/transcribe", {
 })
 ```
 
-### Requesting a transcript format
-With a `transcript_id`, you can request a transcription in `JSON`, `SRT`, `VTT`, or `TXT` formats. These resources will only persist for 24 hours before they are removed.
+### Downloading a transcript
+With a `transcript_id`, you can request a transcript file by including an Accept header with a supported MIME type. The value must be one one the following: `application/json`, `application/x-subrip`, `text/vtt`, `text/plain`. 
 
 ```js
-fetch(`https://transcribe.fm/transcript/${transcript_id}.txt`, {
+fetch(`https://transcribe.fm//api/v1/download/${transcript_id}`, {
   method: 'GET',
   headers: {
-    'Content-Type': 'text/plain'
+    Accept: 'text/plain'
   }
 });
 ```
