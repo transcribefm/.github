@@ -19,10 +19,11 @@ Yes! We support the new [L402 Protocol](https://docs.lightning.engineering/the-l
 ## API
 
 > [!NOTE]  
-> To see a demo of this process, including paying the invoice with webln, check out the [API example](https://github.com/transcribefm/api-example) repo or deploy it yourself on Replit.
+> To see a demo of this process, including paying the invoice with webln, check out the [API example](https://github.com/transcribefm/api-example) repo or run it yourself [on Replit](https://replit.com/badge/github/transcribefm/api-example)
 
 ### Requesting an invoice
-To request an invoice, POST an `audio_url` to `https://transcribe.fm/api/v1/transcribe`:
+To request an invoice, submit an `audio_url` to `https://transcribe.fm/api/v1/transcribe`.
+
 ```js
 fetch("https://transcribe.fm/api/v1/transcribe", {
   method: 'POST',
@@ -46,7 +47,7 @@ WWW-Authenticate: L402 macaroon="AGIAJEemVQUTEyNCR0exk7ek90Cg==", invoice="lnbc1
 The client can then pay the Lightning invoice to reveal the `preimage`. 
 
 ### Requesting transcription
-By including the `macaroon` and the `preimage` in an Authorization header, you can call the `/transcribe` endpoint again. By default, this will return a `transcript_id`, requiring subsequent requests to retreive a transcript in a specific format. 
+By including the `macaroon` and the `preimage` in an Authorization header, you can call the `/transcribe` endpoint again. This will return a `transcript_id`, while the audio is being transcribed. To retreive the transcript itself, a subsequent request is needed.
 
 ```js
 fetch("https://transcribe.fm/api/v1/transcribe", {
@@ -62,7 +63,11 @@ fetch("https://transcribe.fm/api/v1/transcribe", {
 ```
 
 ### Downloading a transcript
-With a `transcript_id`, you can request a transcript file by including an Accept header with a supported MIME type. The value must be one one the following: `application/json`, `application/x-subrip`, `text/vtt`, `text/plain`. 
+With a `transcript_id`, you can request a transcript by including an Accept header with a supported MIME type. The value must be one one the following: 
+* `application/json`
+* `application/x-subrip`
+* `text/vtt`
+* `text/plain`
 
 ```js
 fetch(`https://transcribe.fm//api/v1/download/${transcript_id}`, {
