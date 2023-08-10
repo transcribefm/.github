@@ -70,7 +70,7 @@ With a `transcript_id`, you can request a transcript by including an Accept head
 * `text/plain`
 
 ```js
-fetch(`https://transcribe.fm//api/v1/download/${transcript_id}`, {
+fetch(`https://transcribe.fm/api/v1/download/${transcript_id}`, {
   method: 'GET',
   headers: {
     Accept: 'text/plain'
