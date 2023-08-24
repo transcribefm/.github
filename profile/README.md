@@ -19,7 +19,7 @@ Yes! We support the new [L402 Protocol](https://docs.lightning.engineering/the-l
 ## API
 
 > [!NOTE]  
-> To see a demo of this process, including paying the invoice with webln, check out the [API example](https://github.com/transcribefm/api-example) repo or run it yourself [on Replit](https://replit.com/badge/github/transcribefm/api-example)
+> To see a demo of this process, including paying the invoice with webln, check out the [API example](https://github.com/transcribefm/api-example) repo or [run on Replit](https://replit.com/new/github/transcribefm/api-example) yourself.
 
 ### Requesting an invoice
 To request an invoice, submit an `audio_url` to `https://transcribe.fm/api/v1/transcribe`.
